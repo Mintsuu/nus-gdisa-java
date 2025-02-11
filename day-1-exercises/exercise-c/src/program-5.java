@@ -9,7 +9,7 @@ class Armstrong {
         if(value.length() < 3 || value.length() > 3) {
             System.out.println("Invalid number, please provide a 3-digit integer.");
         }
-
+    
         int match = Integer.parseInt(value);
         int digit1 =  Integer.parseInt(value.substring(0, 1));
         int digit2 =  Integer.parseInt(value.substring(1, 2));
