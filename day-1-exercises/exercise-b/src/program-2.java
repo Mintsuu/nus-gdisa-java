@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class SquareRoot {
+class SquareRootAltered {
     public static void main(String[] args) {
         Scanner inputStream = new Scanner(System.in);
         System.out.println("Please enter a double.");
