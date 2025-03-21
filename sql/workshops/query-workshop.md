@@ -18,13 +18,42 @@ WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE ContactName = "Janet
 12)
 13)
 14)
-15)
-16)
-17)
+15) SELECT OrderId
+FROM Orders o
+WHERE o.CustomerID IN (SELECT CustomerID
+FROM Customers 
+WHERE ContactName = "Roland Mendel" OR ContactName = "Howard Snyder")
+
+16) SELECT c.CustomerID, COUNT(o.CustomerID) as "Total orders"
+FROM Orders o, Customers c
+WHERE o.CustomerID = c.CustomerID
+GROUP BY c.CustomerID
+17) 
+SELECT c.CompanyName, o.OrderID
+FROM Customers c, Orders o
+WHERE c.CustomerID = "BONAP" 
+AND c.CustomerID = o.CustomerID
 18)
-  a)
+  a) 
+SELECT c.CustomerID, c.CompanyName, COUNT(o.OrderID) as "OrderCount"
+FROM Customers c, Orders o
+WHERE c.CustomerID = o.CustomerID
+GROUP BY c.CustomerID, c.CompanyName
   b)
+SELECT c.CustomerID, c.CompanyName, COUNT(o.OrderID) as "OrderCount"
+FROM Customers c, Orders o
+WHERE c.CustomerID = o.CustomerID 
+AND c.CustomerID = 'BONAP'
+GROUP BY c.CustomerID, c.CompanyName
   c)
+SELECT c.CustomerID, c.CompanyName, COUNT(o.OrderID) as "OrderCount"
+FROM Customers c, Orders o
+WHERE c.CustomerID = o.CustomerID  
+GROUP BY c.CustomerID, c.CompanyName
+HAVING COUNT(o.OrderID) > (SELECT COUNT(o.OrderID)
+FROM Customers c, Orders o 
+WHERE c.CustomerID = 'BONAP'
+AND c.CustomerID = o.CustomerID)
 19)
   a)
   b)
@@ -38,6 +67,16 @@ WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE ContactName = "Janet
 25)
   a)
   b)
-26)
+26) 
+SELECT FirstName, LastName
+FROM Employees 
+WHERE EmployeeID IN (
+	SELECT ReportsTo
+	FROM Employees
+	WHERE EmployeeID IN (
+		SELECT EmployeeID 
+		FROM Orders 
+		WHERE OrderID = 10248)
+)
 27)
 

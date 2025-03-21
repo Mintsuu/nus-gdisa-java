@@ -1,0 +1,14 @@
+services:
+  javaworkshops:
+    image: postgres:latest
+    restart: unless-stopped 
+    environment:
+      - POSTGRES_USER=jared
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=javaworkshops
+    ports:
+      - 5432:5432
+    volumes:
+      - javaworkshops:/data/db
+volumes:
+  javaworkshops:
