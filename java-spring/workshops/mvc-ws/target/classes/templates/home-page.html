@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Home Page</title>
+  </head>
+  <body>
+    <H1>Welcome to the Spring Boot MVC Application!</H1>
+    <form action="/submit" method="POST">
+      <table>
+        <tr>
+          <td>Enter your name: </td><td><input type="text" id="name" name="name" /> </td>
+        </tr>
+        <tr colspan="2">
+          <td><input style="width: 100%" type="submit" value="Submit POST request" /></td>
+        </tr>
+      </table>
+    </form>
+
+    <form action="/submit" method="GET">
+      <table>
+        <tr>
+          <td>Enter your name: </td><td><input type="text" id="name" name="name" /> </td>
+        </tr>
+        <tr colspan="2">
+          <td><input style="width: 100%" type="submit" value="Submit GET request"/></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
